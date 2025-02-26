@@ -1,3 +1,5 @@
+
+```
 ### Ansible Configuration:
   
 
@@ -26,13 +28,13 @@ To avoid host key checking,
 ANSIBLE_HOST_KEY_CHECKING=False
 [or] ansible.cfg -> host_key_checking = False
 
-# ansible all -m ping
-# ansible all -m ping -o [ to give output in single line]
-# ansible centos --list-hosts
-# ansible all --list-hosts
-# ansible centos1 --list-hosts
-# ansible centos1 -m ping -o
-# ansible all -m command -a 'id' -o
+ansible all -m ping
+ansible all -m ping -o [ to give output in single line]
+ansible centos --list-hosts
+ansible all --list-hosts
+ansible centos1 --list-hosts
+ansible centos1 -m ping -o
+ansible all -m command -a 'id' -o
 
 sample hosts file:
 [centos]
@@ -45,7 +47,7 @@ ubuntu[2:5]   <- instead of providing list of node names>
 
 [redhat]
 redhat[1:4]
-
+ 
 [redhat:vars]
 ansible_become=true   <- to set the variable for whole group>
 
@@ -85,6 +87,4 @@ ubunut:
     ansible_become_pass: password
 
 
-
-
-
+```
