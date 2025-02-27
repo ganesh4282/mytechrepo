@@ -105,8 +105,11 @@ ubunut:
             - main.yml
       - README.md
       - setup-playbook.yml
+```
 
-- Key Components:
+## Ansible Key Components:
+
+```
     - Modules:
       - Definition:
         - A Module is a small, reusable script that performs a specific task (e.g., install a package, manage files, start a service, etc.).
@@ -161,9 +164,11 @@ ubunut:
         - Extends Ansible functionalities
         - Custom plugins can be created
         - Commonly used for inventory, logging, and formatting
+```
 
+## Verify Ansible Playbooks:
 
-  - Verify Playbooks
+```
     ansible-playbook playbook.yml --<Options>
       --syntax-check	Validates YAML syntax
       --check	        Dry-run without applying changes
@@ -177,8 +182,11 @@ ubunut:
     Moduels Within Playbooks
       debug module	            Verify variables & expressions
 
+```
 
-  - Variable:
+## Ansible Variable:
+
+```
     - Variable Precedence in Ansible (Highest to Lowest)
       Order	Variable Location	Example
       1️⃣ Command Line (-e)	ansible-playbook site.yml -e "app_port=9090"	
@@ -188,9 +196,19 @@ ubunut:
       5️⃣ Role Defaults (defaults/main.yml)	defaults: { app_port: 8080 }	
       6️⃣ Ansible Facts (ansible_facts)	ansible_distribution	
       7️⃣ Environment Variables (lookup('env', 'HOME'))	export app_port=8080	
-      8️⃣ Hardcoded Defaults (default())	`app_port	default('8080')`  
-        
-  - Error handling in Ansible :
+      8️⃣ Hardcoded Defaults (default())	`app_port	default('8080')` 
+
+    - Best Practices for Managing Ansible Variables
+      ✔ Use vars_files for large playbooks to keep things modular.
+      ✔ Use set_fact for dynamic values generated at runtime.
+      ✔ Use default() to prevent missing variable errors.
+      ✔ Use ansible-vault for encrypting sensitive data.
+      ✔ Follow Ansible variable precedence to avoid conflicts.
+```
+
+Error handling in Ansible :
+
+```
     - Using ignore_errors to Continue Execution
       - Allows a task to fail without stopping the playbook.
       - Use Case: When failure is not critical.
@@ -210,6 +228,4 @@ ubunut:
       - always → Runs regardless of success or failure.
       - Use Case: To catch and handle failures gracefully.
       - Example: If package installation fails, a custom error message is printed, and execution continues.
-
-
-```  
+```
